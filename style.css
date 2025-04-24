@@ -19,7 +19,7 @@ body {
 }
 
 .flipbook .hard {
-    background: #e9786b !important;
+    background: linear-gradient(0deg, rgb(253, 54, 133) 28.75%, rgb(254, 207, 215) 100.00%) !important;
 }
 
 .card-title{
@@ -207,4 +207,12 @@ body {
   .carousel img:hover {
     transform: rotateX(0deg) scale(1.05);
     z-index: 2;
+  }
+
+  .son-img-on-last-page{
+    background-image: url(images/itsMe.jpeg);
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
   }
