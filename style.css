@@ -125,22 +125,7 @@ body {
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
             translateZ(180px);
     }
-    .banner .content h1{
-        text-align: center;
-        width: 100%;
-        text-shadow: 0 10px 20px #000;
-        font-size: 7em;
-    }
-    .banner .content .author{
-        color: #fff;
-        padding: 20px;
-        text-shadow: 0 10px 20px #000;
-        z-index: 2;
-        max-width: unset;
-        width: 100%;
-        text-align: center;
-        padding: 0 30px;
-    }
+    
 }
 @media screen and (max-width: 767px) {
     .banner .slider{
@@ -153,17 +138,13 @@ body {
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
             translateZ(120px);
     }
-    .banner .content h1{
-        font-size: 5em;
-    }
 
 
-      .carousel {
-        padding: 10px;
-        gap: 10px;
-      }
+      /* .carousel {
+        padding: 1px;
+        gap: 1px;
+      } */
     .carousel-container h1{
-        margin-top: 100px;
         font-weight: 700;
         text-align: center;
         font-size: 12px;
@@ -188,7 +169,7 @@ body {
     display: none;             /* Chrome, Safari, Opera */
   }
   .carousel-container h1{
-    margin-top: 10px;
+    margin-top: 5px;
     font-weight: bold;
     text-align: center;
     text-decoration: underline;
@@ -196,7 +177,7 @@ body {
   .carousel {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /* gap: 0px; */
     /* padding: 20px; */
     height: max-content;
   }
@@ -220,7 +201,7 @@ body {
   .son-img-on-last-page{
     background-image: url(images/itsMe.jpeg);
     background-size: cover;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
   }
