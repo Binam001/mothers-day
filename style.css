@@ -38,12 +38,14 @@ body {
     background-image: url(images/cover-card.jpg);
     background-size: cover;
 } */
- .front-cover{
+ /* .front-cover{
     background-image: url(images/pink-card-cover.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    /* object-fit: fill; 
     width: 100%;
-    height: 100%;
- }
+    height: 100vh;
+ } */
 
 .flipbook .page {
     background: white;
@@ -52,7 +54,7 @@ body {
 	justify-content: center;
 	align-items: center;
     gap: 10px;
-    border: 3px solid rgb(71, 209, 255);
+    border: 2px solid rgb(71, 209, 255);
 }
 
 .page img{
