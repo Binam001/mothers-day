@@ -5,23 +5,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Happy Mother's Day</title>
 </head>
 
 <body>
+  
+  <!-- <button id="pauseBtn" class="fixed top-4 right-4 z-50 bg-[rgb(250_116_250)] text-white px-8 py-3 rounded"> -->
+  <button id="pauseBtn" class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <!-- 🔈 Pause -->
+    <img src='images/sound-on.png' width='30' height='30'/><img src='images/audio-on.png' alt='Pause' width='30' height='30'>
+  </button>
   <div class="flipbook w-[350px] h-[350px] lg:w-[800px] lg:h-[500px]">
     <div class="hard">
-        <div class="flex items-center justify-center flex-col gap-2 text-base lg:text-4xl">
-          <div class="card-title">Happy</div>
-          <div class="card-title">Mother's</div>
-          <div class="card-title">Day</div>
-        </div>
+      <audio id="audio1" src="audio/heartland-rock-no-copyright-music-307616.mp3" loop="true" autoplay="true"></audio>
+      <div class="flex items-center justify-center flex-col gap-2 text-base lg:text-4xl">
+        <div class="card-title">Happy</div>
+        <div class="card-title">Mother's</div>
+        <div class="card-title">Day</div>
+      </div>
     </div>
-     
+    
     <div class="hard"></div>
-
+    
     <div>
+      <audio id="audio2" src="audio/drift-away-dusk-fss-no-copyright-music-234393.mp3" loop="true"></audio>
       <div class="banner">
         <div class="slider" style="--quantity: 10">
           <div class="item" style="--position: 1"><img src="images/1.jpeg" alt="" /></div>
@@ -44,6 +53,7 @@
     </div>
 
     <div>
+      <audio id="audio3" src="audio/relaxing-afternoon-full-version-relaxing-and-easy-piano-music-112850.mp3" loop="true"></audio>
       <div class="page-2">
         <div>
           <img class="border-2 border-x-red-900" src="images/1001.jpeg" alt="Image 1">
@@ -53,8 +63,9 @@
         </div>
       </div>
     </div>
-
+    
     <div>
+      <audio id="audio4" src="audio/romantic-sentimental-emotional-piano-150085.mp3" loop="true"></audio>
       <div class="carousel-container">
         <h1> Your old Memories here</h1>
         <div class="carousel">
@@ -79,19 +90,69 @@
     </div> -->
 
 
-    <div class="hard"></div>
-
+    <div class="hard">
+      <audio id="audio5" src="audio/heartland-rock-no-copyright-music-307616.mp3" loop="true"></audio>
+    </div>
+    
     <div class="hard last-cover-page">Love From<small>~ Your Son</small>
+      <audio id="audio6" src="audio/drift-away-dusk-fss-no-copyright-music-234393.mp3" loop="true"></audio>
       <div class="son-img-on-last-page"></div>
     </div>
   </div>
 
   <script src="jquery.js"></script>
   <script src="turn.js"></script>
-  <script>
+  <!-- <script>
     $(".flipbook").turn();
+  </script> -->
+  
+  <script>
+    const audios = document.querySelectorAll("audio");
+    let isPlaying = true;
+  
+    $(".flipbook").turn({
+      when: {
+        turned: function (event, page) {
+          // Pause all audios
+          audios.forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+          });
+  
+          // Only play if global music is on
+          if (isPlaying) {
+            const currentAudio = document.getElementById(`audio${page}`);
+            if (currentAudio) {
+              currentAudio.play();
+            }
+          }
+        },
+      },
+    });
+  
+    document.getElementById("pauseBtn").addEventListener("click", () => {
+      isPlaying = !isPlaying;
+  
+      if (!isPlaying) {
+        // Pause all playing audios
+        audios.forEach(audio => audio.pause());
+      } else {
+        // Play only the one on the current visible page
+        const page = $(".flipbook").turn("page");
+        const currentAudio = document.getElementById(`audio${page}`);
+        if (currentAudio) {
+          currentAudio.play();
+        }
+      }
+  
+      document.getElementById("pauseBtn").innerHTML = isPlaying
+  ? "<img src='images/sound-on.png' width='30' height='30'/><img src='images/audio-on.png' alt='Pause' width='30' height='30'>"
+  : "<img src='images/sound-off.png' width='30' height='30'/><img src='images/audio-off.png' alt='Play' width='30' height='30'>";
+    });
   </script>
-
+  
+  
+  
    
 </body>
 
